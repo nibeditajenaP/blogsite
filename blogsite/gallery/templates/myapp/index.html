@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="container mt-5">
+    <h1>Today's New Blogs</h1>
+    <div class="row">
+        {% for prod in products %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <a href="">
+                        <img src="{{prod.image.url}}" alt="{{prod.created_name}}" srcset="">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{prod.name}}</h5>
+                        <p class="card-text">{{prod.short_description}}</p>
+                        <a href="{% url 'edit_product' prod.pk %}">Edit</a>
+                        <a href="{%url 'delete_product' prod.pk%}">Delete</a>
+                    <br>
+                    <small class="card-text">Created at: {{ prod.created_at }}</small> <br>
+                    <small class="card-text">Updated at: {{ prod.updated_at }}</small>
+                 </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
